@@ -1,25 +1,28 @@
 /* ==========================
-01 GENERAL STYLE & BASIC RESETS 
+01 GENERAL STYLE & RESET
 =============================*/
-*, ::before,* ::after {
+*, ::before, ::after {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
 :root {
-    --background-color: linear-gradient(135deg,  #0f0f0f, #1c1a2f, #2d2444);
-    --accent: rgb(255, 255, 255);
+    /* COLORS & BACKGROUND */
+    --background-color: linear-gradient(135deg, #0f0f0f, #1c1a2f, #2d2444);
+    --accent: #FFD700; 
     --text-color: #ffffff;
     --border-color: #444;
-    --box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
     --border-radius: 10px;
-    --box-shadow-hover: 0 4px 10px rgba(0, 0, 0, 0.3);
-    --transition: .3s ease-in-out;
+    --box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    --box-shadow-hover: 0 4px 10px rgba(0,0,0,0.3);
+    --transition: 0.3s ease-in-out;
+
+    /* GRID & LAYOUT */
     --layout: grid;
-    --layout-template: repeat(auto-fit, minmax(300px, 1fr));
-    
-    /* size */
+    --layout-template: repeat(auto-fit, minmax(280px, 1fr));
+
+    /* SIZING */
     --margin-small: 5px 0;
     --margin-medium: 10px 0;
     --font-size-small: 12px;
@@ -29,8 +32,10 @@
     --padding-medium: 12px 16px;
     --padding-large: 16px 24px;
     --line-height: 1.5;
+}
 
-   }
+/* FONTS */
+
    @font-face {
     font-family: "Montserrat";
     src: url(assets/fonts/Montserrat-Light.ttf), format(truetype);
@@ -59,196 +64,392 @@
     font-display: swap;
     font-weight: normal;
    }
-html {
-    scroll-behavior: smooth;
-    font-size: var(--font-size-medium);
-}
-img {
-    display: block;
-    max-width: 100%;
-    height:auto;
-}
-figure {
-    margin: var(--margin-medium);
-}
- a:link {
-    text-decoration: none;
-    color: var(--accent);
-}
- a:hover {
-    text-decoration: underline;
-    color: var(--text-color);
-}
- a:visited {
-    text-decoration: none;
-    color: var(--accent)
-}
-li {
-    list-style-type: none;
-}
-   /* ===========================
-    02. BODY & HEADING
-   ============================== */
+
 body {
     font-family: "Montserrat", Arial, sans-serif;
     background: var(--background-color);
-    animation: gradientBG 10s ease infinite;
     background-size: 400% 400%;
     color: var(--text-color);
-    padding: 20px;
-}
-body::before {
-    content: "";
-    position: fixed;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    background: var(--background-color);
-    z-index: -1;
-    -webkit-backdrop-filter: blur(8px);
-    backdrop-filter: blur(8px);
-    animation: gradientBG 10s ease infinite;
-    background-size: 400% 400%;
-}
-h1,h2,h3 {
-    font-family: "Poppins";
-    text-transform: uppercase;
-}
-h1 {
-    font-size: 1.5rem;
-}
-#intro h2{
-    max-width:min-content;
-    line-height: 1.1;
-}
- h2{
-    font-size: clamp(1.8rem, 3.5vw + 0.5rem, 2.5rem);
-}
-h3 {
-    margin: var(--margin-medium);
-    text-transform: capitalize;
-    letter-spacing: 2px;
-}
-h4 {
-    margin: var(--margin-medium);
-}
-* p {
-    text-align: left;
+    scroll-behavior: smooth;
     line-height: var(--line-height);
-    margin: var(--margin-medium);
-}
-@keyframes gradientBG {
-    0% {
-        background-position: 0% 50%;
-    }
-    50% {
-        background-position: 100% 50%;
-    }
-    100% {
-        background-position: 0% 50%;
-    }
+    overflow-x: hidden;
 }
 
-/* =================
-03 HEADER & NAVIGATION
-===================*/
-header {
-  
-width: 100%;
+/* LINKS */
+a {
+    color: var(--accent);
+    text-decoration: none;
+    transition: var(--transition);
+}
+a:hover {
+    text-decoration: underline;
+/*     color: var(--text-color);
+ */}
+
+/* HEADINGS */
+h1, h2, h3, h4 {
+    font-family: "Poppins", sans-serif;
+    margin-block: var(--margin-medium);
+}
+h1 { font-size: clamp(1rem, 4vw, 1.3rem);
+  text-transform: uppercase; 
+  text-align: left;
+}
+h2 { font-size: clamp(1.8rem, 3.5vw + 0.5rem, 3rem); 
+  text-transform: uppercase;}
+h3 { font-size: var(--font-size-medium);
+}
+h4 { font-size: var(--font-size-small); }
+
+/* IMAGES & FIGURES */
+img { display: block;
+     max-width: 100%; 
+     height: auto; 
+    }
+figure { 
+    margin-block: var(--margin-medium); 
 }
 
+/* ==========================
+02 HEADER & NAVIGATION
+=============================*/
+header { width: 100%; }
+nav {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding-inline: var(--padding-medium);
+    padding-block: var(--padding-medium);
+}
+
+nav ul {
+    display: flex;
+    gap: 1rem;
+    padding-inline: var(--padding-large);
+    list-style-type: none;
+}
+
+nav ul li a {
+     font-size: var(--font-size-medium);
+     font-weight: bold;}
+
+/* HAMBURGER */
 #togglebtn {
     display: none;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 30px;
+    height: 30px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
 }
-
-nav {
-    padding: 10px;
+#togglebtn .bar {
     width: 100%;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-    gap: 10px;
-}
-nav ul {
-    display:flex;
-}
-nav ul li {
-    margin-right: 1rem;
-}
-
-/* mobile nav */
-@media  screen and (max-width: 900px) {
-    h1 {
-    font-size: 1rem;
-}
-    #togglebtn {
-cursor: pointer;
-width: 30px;
-height: 30px;
-display : grid;
-border: none;
-outline: none;
-padding: 5px;
-background: transparent;
-transition: transform .2s ease-in-out;
- }
-#togglebtn:hover {
-    transform: rotate(190deg);
-}
-span.bar {
-    display: block;
-    width: 100%;
-    height: 2px;
+    height: 3px;
     background: var(--text-color);
-    color: white;
-    margin-top: 3px;
+    border-radius: 2px;
 }
-nav ul {
-width: 100%;
-height: 100%;
-position: absolute;
-background: #ccc;
-top: 3.5rem;
-display: block;
-left: 0;
-padding: var(--padding-large);
-transition: transform var(--transition), opacity var(--transition);
-transform: translate(500px);
-opacity:0;
- }
-nav ul.active {
-    transform: translate(0);
-    opacity: 1;
- }
-nav ul li  {
-    margin-top: 1rem;
-}
-nav ul li a {
-font-size: var(--font-size-medium)
-}
-}
-/* ===========================
-04 MAIN STYLE
-============================== */
+
+/* ==========================
+03 MAIN & SECTIONS
+=============================*/
 main {
     display: var(--layout);
     grid-template-columns: 1fr;
-    grid-template-rows: auto;
-    gap: 10px;
+    gap: 2rem;
+    padding-inline: var(--padding-medium);
+    margin-inline: auto;
     max-width: 1200px;
-    margin: 3rem auto;
-    padding: 10px;
- }
+}
 
- section {
-    margin: 2.5rem 0;
+section {
     display: var(--layout);
-    grid-template-columns:var(--layout-template);
-    grid-template-rows: auto;
-    gap: 10px;
-    max-width:100%;
- }
- section ul li {
-    margin: var(--margin-medium);
- }
+    grid-template-columns: var(--layout-template);
+    gap: 2rem;
+    padding-inline: var(--padding-large);
+    margin-block: 3rem;
+    justify-items: center;
+    width: 100%;
+}
+
+/* HERO */
+#hero .wrapper {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    align-items: center;
+    justify-items: center;
+}
+#hero img {
+    border-radius: var(--border-radius);
+}
+
+/* PROJECT GRID */
+.projectgrid {
+    display: grid;
+    grid-template-columns: var(--layout-template);
+    gap: 2rem;
+    justify-items: center;
+}
+.projectcard {
+    background: rgba(0,0,0,0.5);
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    box-shadow: var(--box-shadow);
+    display: flex;
+    flex-direction: column;
+    transition: var(--transition);
+}
+.projectcard:hover { box-shadow: var(--box-shadow-hover); }
+.projectcontent {
+    padding-block: var(--padding-medium);
+    padding-inline: var(--padding-medium);
+}
+.projectcontent h3 { margin-bottom: var(--margin-small); }
+.projectcontent p { margin-bottom: var(--margin-medium); }
+.projectcontent ul { margin-top: var(--margin-small); }
+
+/* BUTTONS */
+.btn {
+    display: inline-block;
+    padding: var(--padding-small);
+    background: var(--accent);
+    color: #000;
+    border-radius: var(--border-radius);
+    transition: var(--transition);
+    font-weight: bold;
+}
+.btn:hover { opacity: 0.85; }
+
+/* CONTACT FORM */
+form {
+    display: grid;
+    gap: var(--margin-medium);
+    max-width: 600px;
+    margin-inline: auto;
+}
+form input, form textarea {
+    width: 100%;
+    padding-block: var(--padding-small);
+    padding-inline: var(--padding-medium);
+    border-radius: var(--border-radius);
+    border: 1px solid var(--border-color);
+    background: rgba(255,255,255,0.05);
+    color: var(--text-color);
+}
+
+/* ==========================
+04 FOOTER
+=============================*/
+footer {
+    text-align: center;
+    padding-block: var(--padding-large);
+    background: rgba(0,0,0,0.7);
+    color: var(--text-color);
+}
+/* footer ul {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-block: var(--margin-medium);
+}
+footer ul li a { color: var(--accent); }
+footer ul li a:hover { text-decoration: underline; } */
+
+/* ==========================
+05 RESPONSIVE MEDIA QUERIES
+=============================*/
+/* Mobile */
+@media (max-width: 768px) {
+    nav ul { 
+        flex-direction: column;
+        gap: 1rem;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        right: 0;
+        background: rgba(15,15,15,0.9);
+        padding-block: var(--padding-medium);
+        transform: translateX(100%);
+        transition: transform var(--transition);
+    }
+    nav ul.active { 
+        transform: translateX(0); 
+    }
+    #togglebtn { 
+        display: flex; 
+    }
+    main, section { 
+        padding-inline: var(--padding-small); }
+}
+
+/* Tablet */
+@media (min-width: 769px) and (max-width: 1024px) {
+    section { grid-template-columns: repeat(2, 1fr); }
+}
+
+/* Desktop */
+@media (min-width: 1025px) {
+    main, section { max-width: 1200px; }
+    form {
+        min-width: 500px;
+    }
+}
+
+/* ==========================
+06 ACCESSIBILITY IMPROVEMENTS
+=============================*/
+
+/* =====================
+Focus styles for keyboard users
+======================*/
+:focus {
+    outline: 2px dashed var(--accent);
+    outline-offset: 4px;
+}
+
+/* Buttons and links */
+a:focus, .btn:focus {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+}
+
+/* Form inputs & textarea */
+input:focus, textarea:focus {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+    background: rgba(255, 255, 255, 0.1);
+}
+i {
+    margin-inline: var(--margin-small);
+}
+/* =====================
+Keyboard guidance hints
+======================*/
+
+/* Skip to main content link (optional but recommended) */
+.skip-link {
+    position: absolute;
+    top: -40px;
+    left: 0;
+    background: var(--accent);
+    color: #000;
+    padding: 8px 16px;
+    z-index: 100;
+    transition: top 0.3s ease;
+}
+.skip-link:focus {
+    top: 0;
+    background: initial;
+}
+
+/* =====================
+Improve contrast for small text
+======================*/
+small, p, label, li {
+    color: var(--text-color);
+}
+
+/* =====================
+Accessible buttons
+======================*/
+.btn[aria-disabled="true"] {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+/* =====================
+Focus-visible polyfill for browsers that support it
+======================*/
+:focus:not(:focus-visible) {
+    outline: none;
+}
+/* ==========================
+07 INTERACTIVE & FOCUS ANIMATIONS
+=============================*/
+
+/* =====================
+Smooth button hover & focus
+======================*/
+.btn {
+    transition: background 0.3s ease, color 0.3s ease, transform 0.2s ease;
+}
+
+.btn:hover, 
+.btn:focus {
+    background: var(--accent);
+    color: #000; 
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(255,255,255,0.2);
+}
+
+/* Secondary buttons */
+.btn-secondary {
+    border: 2px solid var(--accent);
+    color: var(--accent);
+    background: transparent;
+}
+
+.btn-secondary:hover,
+.btn-secondary:focus {
+    background: var(--accent);
+    color: #000;
+    transform: translateY(-2px);
+}
+
+/* =====================
+Links inside text
+======================*/
+a:hover, a:focus {
+    color: var(--accent);
+    text-decoration: underline;
+    transition: color 0.2s ease, text-decoration 0.2s ease;
+}
+
+/* =====================
+Project cards hover/focus
+======================*/
+.projectcard {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+}
+
+.projectcard:hover, 
+.projectcard:focus-within {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 15px rgba(255, 255, 255, 0.1);
+    outline: none;
+}
+
+/* =====================
+Form inputs & buttons animation
+======================*/
+input:focus, textarea:focus {
+    transform: scale(1.02);
+    transition: transform 0.2s ease, background 0.3s ease;
+}
+
+/* =====================
+Subtle hover for skill list
+======================*/
+.skills li {
+    transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.skills li:hover, 
+.skills li:focus {
+    color: var(--accent);
+    transform: translateX(3px);
+}
+
+/* =====================
+Navigation links hover/focus
+======================*/
+nav ul li a:hover, 
+nav ul li a:focus {
+    color: var(--accent);
+    text-decoration: underline;
+    transition: color 0.2s ease, text-decoration 0.2s ease;
+}
