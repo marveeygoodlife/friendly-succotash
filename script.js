@@ -1,10 +1,9 @@
 "use strict"
 
-const ul = document.querySelector('nav ul');
-const ulbtn = document.querySelector('nav button');
- dynamicToggle()
-function dynamicToggle() {
+document.addEventListener("DOMContentLoaded", function() {
+    const ul = document.querySelector('nav ul');
+    const ulbtn = document.querySelector('nav button');
     ulbtn.addEventListener("click", () => {
-    ul.classList.toggle('active')
-})
-}
+        ul.classList.toggle('active');
+    });
+});
