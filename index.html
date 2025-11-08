@@ -3,13 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
+    <meta name="description" content="Welcome to my portfolio website! Explore my projects, skills, and experiences in web development and design." />
+  <meta name="keywords" content="Portfolio, Web Development, Projects, Skills, Experience, Design" />
+  <meta name="author" content="Marvellous Ediagbonya" />
+  <meta name="robots" content="index, follow" />
+  
+  <!-- Favicons -->
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/favicon_io/apple-touch-icon.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon_io/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon_io/favicon-16x16.png" />
+  <link rel="manifest" href="assets/favicon_io/site.webmanifest" />
+
+    <link rel="stylesheet" href="styles.css">
     <title>My portfolio</title>
 </head>
 <body>
+    <a href="#hero" class="skip-link">Skip-to-main-content</a>
     <header>
-        <h1>Marvellous Ediagbonya.</h1>
+        
         <nav>
+             <!-- logo -->
+    <a href="#" class="logo" aria-label="Marvellous home" title="Marvellous Ediagbonya.">
+      <svg width="300" height="40" xmlns="http://www.w3.org/2000/svg" role="img" aria-hidden="true">
+        <rect width="100%" height="100%" fill="transparent" />
+        <!-- the visible wordmark; styling lives in the head -->
+        <text x="125" y="30" text-anchor="middle" id="textSvg">Marvellous Ediagbonya.</text>
+      </svg>
+    </a>
             <ul id="ul">
                 <li><a href="#work">Work</a></li>
                 <li><a href="#about">About</a></li>
@@ -23,24 +43,34 @@
         </nav>
     </header>
     <main>
-        <section id="intro">
-            <h2>HI, I AM <BR> MARVELLOUS EDIAGBONYA.</h2>
+        <section id="hero">
+                <div class="wrapper">
+                
+            <div class="hero_content">
+                <h1>HI, I AM <BR> <span class="name">MARVELLOUS</span> EDIAGBONYA.</h1>
             <p>
                 An Abuja-based front-end developer passionate about building responsive, functional and user-friendly web applications with great user experiences.
             </p>
-            <div class="intro_content">
-                <a href="#work" class="btn">Contact Me</a>
-                <a href="#contact" class="btn btn-secondary">LinkedIn</a>
-                <a href="#contact" class="btn btn-secondary">Github</a>
+                <a href="#contact" class="btn">Contact Me</a>
+
+                <a href="https://www.linkedin.com/in/marvellous-ediagbonya/" class=" removebd" target="_blank"  rel="noopener noreferrer"><i class="fa-brands fa-linkedin-in"  aria-hidden="true"></i>
+                <span class="sr-only">LinkedIn</span> 
+                </a>
+
+                <a href="https://github.com/marveeygoodlife" class=" removebd" target="_blank"  rel="noopener noreferrer"><i class="fa-brands fa-github"  aria-hidden="true"></i>
+                <span class="sr-only">Github</span> 
+                </a>
             </div>
             <figure>
                 <img src="https://avatar.iran.liara.run/public" alt="profile picture">
             </figure>
+            </div>
         </section>
 <hr>
-        <section id="project">
+        <section id="work">
             <h2>FEATURED PROJECTS</h2>
-            <p>
+    
+            <p id="workp">
                 Here are some of the projects I built that showcase my love for front-end development.
             </p>
 
@@ -52,19 +82,21 @@
                     <div class="projectcontent">
                         <h3>Project Title</h3>
                         <p>A functional UI component showcasing simple interactions, smooth animations, and an organized code structure that’s easy to extend.</p>
-                    
-                   <div>
-                     <a href="#" class="btn btn-secondary">See on Github</a>
-                    <a href="#" class="btn btn-secondary">Live Demo</a>
-                   </div>
-                   <div>
+                   
                         <h4>Project Info</h4>
                         <ul>
-                <li><strong>Role:</strong> Frontend Developer</li>
-                <li><strong>Technologies:</strong> HTML, CSS, JavaScript</li>
-                <li><strong>Year:</strong> 2024</li>
+                <li><strong>Role:</strong> <span class="pg">Frontend Developer</span></li>
+                <li><strong>Technologies:</strong> <span class="pg">HTML, CSS, JavaScript</span></li>
+                <li><strong>Year:</strong> <span class="pg">2024</span></li>
                         </ul>
-                    </div>
+                    
+                     <a href="#" class="btn btn-secondary">See on Github 
+                        <i class="fa-brands fa-github"  aria-hidden="true"></i>
+                    </a>
+                    <a href="#" class="btn btn-secondary">Live Demo 
+                        <i class="fa-solid fa-arrow-up-right-from-square"  aria-hidden="true"></i>
+                    </a>
+                  
                     </div>
                 </div>
 
@@ -75,18 +107,19 @@
                     <div class="projectcontent">
                     <h3>Project Title</h3>
                     <p>A polished front-end layout focused on accessibility, visual balance, and efficient code, created to highlight consistent design patterns.</p>
-                    <div>
-                    <a href="#" class="btn btn-secondary">See on Github</a>
-                    <a href="#" class="btn btn-secondary">Live Demo</a>
-                    </div>
-                    <div>
+                    
                         <h4>Project Info</h4>
                         <ul>
-                <li><strong>Role:</strong> Frontend Developer</li>
-                <li><strong>Technologies:</strong> HTML, CSS, JavaScript</li>
-                <li><strong>Year:</strong> 2024</li>
+                <li><strong>Role:</strong> <span class="pg">Front-End Developer</span></li>
+                <li><strong>Technologies:</strong> <span class="pg">HTML, CSS, JavaScript</span></li>
+                <li><strong>Year:</strong> <span class="pg">2024</span></li>
                         </ul>
-                    </div>
+                    <a href="#" class="btn btn-secondary">See on Github 
+                        <i class="fa-brands fa-github"  aria-hidden="true"></i>
+                    </a>
+                    <a href="#" class="btn btn-secondary">Live Demo 
+                        <i class="fa-solid fa-arrow-up-right-from-square"  aria-hidden="true"></i>
+                    </a>
                     </div>
                 </div>
 
@@ -97,58 +130,102 @@
                     <div class="projectcontent">
                     <h3>Project Title</h3>
                     <p>A small web tool demonstrating practical JavaScript logic, clean styling, and user-friendly behavior built for everyday tasks.</p>
-                    <div>
-                    <a href="#" class="btn btn-secondary">See on Github</a>
-                    <a href="#" class="btn btn-secondary">Live Demo</a>
-                    </div>
-                    <div>
                         <h4>Project Info</h4>
                         <ul>
-                <li><strong>Role:</strong> Frontend Developer</li>
-                <li><strong>Technologies:</strong> HTML, CSS, JavaScript</li>
+                <li><strong>Role:</strong> <span class="pg">Front-End Developer</span></li>
+                <li><strong>Technologies:</strong> <span class="pg">HTML, CSS, JavaScript</span></li>
                 <li><strong>Year:</strong> 2024</li>
                         </ul>
-                    </div>
+                    <a href="#" class="btn btn-secondary">See on Github 
+                        <i class="fa-brands fa-github"  aria-hidden="true"></i>
+                    </a>
+                    <a href="#" class="btn btn-secondary">Live Demo 
+                        <i class="fa-solid fa-arrow-up-right-from-square"  aria-hidden="true"></i>
+                    </a>
                     </div>
                 </div>
-
             </div>
         </section>
         <hr>
         <section id="about">
             <h2>About Me</h2>
+            <div class="wrapper">
             <div>
-                <p>I am a front-end engineer based in Abuja.</p>
-                <p>I specialize in building responsive and user-friendly web applications. My passion lies in creating accessibility rich, and  seamless user experiences through clean and efficient code. When I'm not coding, I enjoy reading books, spending time in nature, photography, self-development, and exploring new technologies to enhance my skills in web development.</p>
-            <p>
-                currently, I am focused on expanding my expertise in React and modern JavaScript frameworks to build dynamic and interactive web applications.
+                <h3 class= "abouth3">I am a front-end engineer based in Abuja. I am computer savvy.</h3>
+                <p class="aboutp">I specialize in building responsive and user-friendly web applications. My passion lies in creating accessibility rich, and  seamless user experiences through clean and efficient code. When I'm not coding, I enjoy reading books, spending time in nature, photography, self-development, and exploring new technologies to enhance my skills in web development.<br>currently, I am focused on expanding my expertise in React and modern JavaScript frameworks to build dynamic and interactive web applications.
             </p>
+            <!-- download resume -->
+             <!-- Download a PDF file -->
+<a href="assets/Marvellous_Resumee.pdf" download class="btn">
+    <i class="fa-solid fa-download"  aria-hidden="true">
+    </i> Download CV
+    <span class="sr-only">Download my CV</span> 
+</a>
+
                 <!-- <p>Skills: HTML, CSS, JavaScript, React, Git, Responsive Design, UI/UX Principles, Cross-Browser Compatibility, Performance Optimization.</p> -->
+            </div>
             </div>
         </section>
         
-        <section>
+        <section id="capability">
             <h2>MY CAPABILITIES</h2>
+            <div class="wrapper">
             <p>I am always looking to develop my skills and take on new challenges.
             <br> Here are some of the technologies and tools I work with:
             </p>
             <div>
-                <ul class="skills">
-                    <li>HTML5</li>
-                    <li>CSS3</li>
-                    <li>JavaScript (ES6+)</li>
-                    <li>React.js</li>
-                    <li>Git & GitHub</li>
-                    <li>Responsive Web Design</li>
-                    <li>UI/UX Principles</li>
-                    <li>Cross-Browser Compatibility</li>
-                    <li>Performance Optimization</li>
-                </ul>
+<ul class="skills">
+  <li>
+    <img src="assets/images/html-1.svg" alt="" width="40">
+    <span class="sr-only">HTML5</span>
+  </li>
+  <li>
+    <img src="assets/images/css-3.svg" alt="" width="40">
+    <span class="sr-only">CSS3</span>
+  </li>
+  <li>
+    <img src="assets/images/javascript-1.svg" alt="" width="40">
+    <span class="sr-only">JavaScript</span>
+  </li>
+  <li>
+    <img src="assets/images/react-1.svg" alt="" width="40">
+    <span class="sr-only">React</span>
+  </li>
+  <li>
+    <img src="assets/images/chatgpt-1.svg" alt="" width="40">
+    <span class="sr-only">ChatGPT</span>
+  </li>
+  <li>
+    <img src="assets/images/visual-studio-code-1.svg" alt="" width="40">
+    <span class="sr-only">Visual Studio Code</span>
+  </li>
+  <li>
+    <img src="assets/images/git-bash.svg" alt="" width="40">
+    <span class="sr-only">Git Bash</span>
+  </li>
+  
+  <li>
+    <img src="assets/images/figma-icon.svg" alt="" width="30">
+    <span class="sr-only">Figma</span>
+  </li>
+  <li>
+    <img src="assets/images/canva-wordmark-2.svg" alt="" width="40">
+    <span class="sr-only">Canva</span>
+  </li>
+  
+  <li>
+    <img src="assets/images/git.svg" alt="" width="40">
+    <span class="sr-only">Git</span>
+  </li>
+</ul>
+
+            </div>
             </div>
         </section>
         <hr>
-        <section>
+        <section id="experience">
             <h2>my experience</h2>
+            <div class="wrapper">
             <div>
                 <h3>Front-End Developer Intern</h3>
                 <p><strong>Tech Solutions Ltd</strong> | June 2023 - August 2023</p>
@@ -183,25 +260,44 @@
                     <li>JavaScript Algorithms and Data Structures - freeCodeCamp (2023)</li>
                 </ul>
             </div>
+            </div>
         </section>
         <hr>
         <section id="contact">
             <div class="contact_content">
-                
             <h2>Lets connect</h2>
-            <p>Say hello at <a href="mailto:marveey8027@gmail.com">marveey8027@gmail.com</a>
+            <p class="contactp">Say hello at <a href="mailto:marveey8027@gmail.com">
+                marveey8027@gmail.com
+            <span class="sr-only">Send me an email.</span> 
+            </a>
             </p>
-            <p>For more information, heres my <a href="http://" download="on">resume</a></p>
+            <p>
+                For more information,
+                <a href="assets/Marvellous_Resumee.pdf" target="_blank" rel="noopener noreferrer">here is my resume.
+                </a>
+            </p>
            <div>
-                <a href="#" class="btn btn-secondary">LinkedIn</a>
-                <a href="#" class="btn btn-secondary">GitHub</a>
-                <a href="#" class="btn btn-secondary">X</a>
-                <a href="#" class="btn btn-secondary">WhatsApp</a>
+                <a href="https://www.linkedin.com/in/marvellous-ediagbonya/" class="removebd" target="_blank"  rel="noopener noreferrer">
+                    <i class="fa-brands fa-linkedin-in"  aria-hidden="true"></i>
+                    <span class="sr-only">Connect via LinkedIn</span> 
+                </a>
+                <a href="https://github.com/marveeygoodlife" class="removebd" target="_blank"  rel="noopener noreferrer" >
+                    <i class="fa-brands fa-github" aria-hidden="true"></i>
+                    <span class="sr-only">Check-out my Github</span> 
+                </a>
+                <a href="https://wa.me/2347053902558" class="removebd" target="_blank"  rel="noopener noreferrer">
+                    <i class="fa-brands fa-whatsapp"  aria-hidden="true"></i>
+                    <span class="sr-only">Send message on whatsApp</span> 
+                </a>
+                <a href="https://twitter.com/marveeygoodlife" class="removebd" target="_blank"  rel="noopener noreferrer">
+                    <i class="fa-brands fa-x-twitter"  aria-hidden="true"></i>
+                    <span class="sr-only">Follow me on twitter(x)</span> 
+                </a>
            </div>
             </div>
 
             <div class="form">
-                <form action="" method="post">
+                <form action="#" method="post">
                     <label for="name">Name:</label>
                     <input type="text" id="name" name="name" required placeholder="Enter full name" autocomplete="name">
 
@@ -220,8 +316,9 @@
         <hr>
     </main>
     <footer>
-        <p>&copy; 2025 Marvellous Ediagbonya. All rights reserved.</p>
+        <p>&copy; 2025. All rights reserved.</p>
     </footer>
-    <script src="app.js"></script>
+<script src="https://kit.fontawesome.com/184a11b74d.js" crossorigin="anonymous" defer></script>
+    <script src="script.js"></script>
 </body>
 </html>
