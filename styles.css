@@ -26,6 +26,7 @@
     --margin-small: 5px 0;
     --margin-medium: 10px 0;
     --margin-large: 20px 0;
+    --margin-xl: 1.2rem 0;
     --font-size-small: 12px;
     --font-size-medium: 16px;
     --font-size-large: 24px;
@@ -36,7 +37,6 @@
 }
 
 /* FONTS */
-
    @font-face {
     font-family: "Montserrat";
     src: url(assets/fonts/Montserrat-Light.ttf), format(truetype);
@@ -70,12 +70,37 @@ body {
     font-family: "Montserrat", Arial, sans-serif;
     background: var(--background-color);
     background-size: 400% 400%;
+    animation: BGanimation 10s ease infinite;
     color: var(--text-color);
     scroll-behavior: smooth;
     line-height: var(--line-height);
     overflow-x: hidden;
 }
 
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--background-color);
+    z-index: -1;
+    -webkit-backdrop-filter: blur(8px);
+    backdrop-filter: blur(8px);
+    animation: BGanimation 10s ease infinite;
+    background-size: 400% 400%;
+}
+@keyframes BGanimation {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
 /* LINKS */
 a {
     color: var(--accent);
@@ -92,16 +117,21 @@ h1, h2, h3, h4 {
     font-family: "Poppins", sans-serif;
     margin-block: var(--margin-medium);
 }
-h1 { font-size: clamp(1.8rem, 3.5vw + 0.5rem, 3rem);
+h1 { 
+    font-size: clamp(1.8rem, 3.5vw + 0.5rem, 4rem);
   text-transform: uppercase; 
   text-align: left;
   line-height: 1;
+  margin-bottom: 1rem;
 }
-h2 { font-size: clamp(1.5rem, 3.5vw + 0.5rem, 2.6rem); 
+h2 { 
+    font-size: clamp(1.5rem, 3.5vw + 0.5rem, 2.6rem); 
   text-transform: uppercase;}
-h3 { font-size: var(--font-size-medium);
+h3 { 
+    font-size: var(--font-size-medium);
 }
-h4 { font-size: var(--font-size-small); }
+h4 { 
+    font-size: var(--font-size-small); }
 
 /* IMAGES & FIGURES */
 img { display: block;
@@ -119,9 +149,11 @@ figure {
 }
 
 /* ==========================
-02 HEADER & NAVIGATION
+ HEADER & NAVIGATION
 =============================*/
-header { width: 100%; }
+
+header { 
+    width: 100%; }
 nav {
     display: flex;
     justify-content: space-around;
@@ -143,6 +175,16 @@ nav ul li a {
      font-size: var(--font-size-medium);
      font-weight: bold;}
 
+/* =====================
+Navigation links hover/focus
+======================*/
+nav ul li a:hover, 
+nav ul li a:focus {
+    color: var(--accent);
+    text-decoration: underline;
+    transition: color 0.2s ease, text-decoration 0.2s ease;
+}
+
 /* HAMBURGER */
 #togglebtn {
     display: none;
@@ -163,7 +205,7 @@ nav ul li a {
 }
 
 /* ==========================
-03 MAIN & SECTIONS
+ MAIN & SECTIONS
 =============================*/
 main {
     display: var(--layout);
@@ -183,8 +225,10 @@ section {
     justify-items: center;
     width: 100%;
 }
+/* ==========================
+ MY INTRO/HERO SECTION
+=============================*/
 
-/* HERO */
 #hero .wrapper {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -195,45 +239,152 @@ section {
 #hero img {
     border-radius: var(--border-radius);
 }
+.hero-content p {
+    margin-block: var(--margin-large);
+}
+span.name {
+    color: var(--accent);
+}
+/* ==========================
+ MY FEATURED PROJECTS
+=============================*/
+section#work {
+    justify-items: unset;
+    display: unset;
+ }
 
-/* PROJECT GRID */
+ section#work figure{
+    background: rgba(128, 128, 128, 0.251);
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    display: flex;
+     align-items: center;
+    justify-content: center;
+  }
+ section#work figure img{
+    border: 2px solid #111;
+    max-width: 90%;
+    height: auto;
+  }
+ section#work #workp {
+margin :1rem 0;
+ max-width: 500px;
+}
+
+/* project cards */
 .projectgrid {
     display: grid;
-    grid-template-columns: var(--layout-template);
-    gap: 2rem;
-    justify-items: center;
-}
+    grid-template-columns:1fr;
+     gap: 2rem;
+    align-content: center;
+justify-items: center;}
+
 .projectcard {
     background: rgba(0,0,0,0.5);
     border-radius: var(--border-radius);
     overflow: hidden;
     box-shadow: var(--box-shadow);
-    display: flex;
-    flex-direction: column;
+    display: var(--layout);
+    grid-template-columns: var(--layout-template);
     transition: var(--transition);
 }
-.projectcard:hover { box-shadow: var(--box-shadow-hover); }
+
+.projectcard:hover, 
+.projectcard:focus-within {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 15px rgba(255, 255, 255, 0.1);
+    outline: none;
+}
 .projectcontent {
-    padding-block: var(--padding-medium);
+    overflow-x: hidden;
+     padding-block: var(--padding-medium);
     padding-inline: var(--padding-medium);
 }
-.projectcontent h3 { margin-bottom: var(--margin-small); }
-.projectcontent p { margin-bottom: var(--margin-medium); }
-.projectcontent ul { margin-top: var(--margin-small); }
-
-/* BUTTONS */
-.btn {
-    display: inline-block;
-    padding: var(--padding-small);
-    background: var(--accent);
-    color: #000;
-    border-radius: var(--border-radius);
-    transition: var(--transition);
-    font-weight: bold;
+.projectcontent h3, h4 { 
+    margin-block: var(--margin-xl); 
+text-transform: uppercase;
 }
-.btn:hover { opacity: 0.85; }
+.projectcontent p {
+     margin-block: var(--margin-xl); }
+.projectcontent ul { 
+    margin-block: var(--margin-xl); }
+.projectcontent   h4 {
+    border-bottom: 1px solid var(--border-color);
+padding-bottom: 20px;
+}
+.projectcontent ul li { 
+    padding-bottom: 10px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    margin-block: var(--margin-medium);
+border-bottom: 1px solid var(--border-color);
+}
+.projectcontent a { 
+    display: inline-flex;
+     width: fit-content;
+}
+/* ==========================
+ ABOUT ME SECTION
+=============================*/
+h3.abouth3 {
+    font-size: clamp(1.5rem, 3.5vw + 0.5rem, 2.3rem);
+     margin-block: var(--margin-large);
+    line-height: 1;
+    font-weight: 900;
+    margin-bottom: var(--margin-large);
+}
+p.aboutp {
+    margin-block: var(--margin-large)
+}
+#about img {
+    border-radius: 50%;
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+}
 
-/* CONTACT FORM */
+/* =====================
+ skill list style
+======================*/
+.skills {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(75px, 1fr));
+    grid-auto-rows: 50px;
+    align-items: center;
+    justify-items: center;
+    max-width: 300px;
+    gap:  1.5rem 1rem;
+    margin-inline: auto;
+    margin-block: var(--margin-large);
+}
+.skills li {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: color 0.2s ease, transform 0.2s ease;
+    border-radius: var(--border-radius);
+    border: 1px solid var(--accent);
+    width: fit-content;
+    padding-inline: var(--padding-medium);
+    padding-block: var(--padding-small);
+    position: relative;
+     
+}
+.skills li:hover, 
+.skills li:focus {
+    color: var(--accent);
+    transform: translateX(3px);
+}
+/* ==========================
+ CONTACT ME SECTION
+=============================*/
+.contact_content p {
+    margin-block : var(--margin-small);
+}
 form {
     display: grid;
     gap: var(--margin-medium);
@@ -249,9 +400,17 @@ form input, form textarea {
     background: rgba(255,255,255,0.05);
     color: var(--text-color);
 }
+/* Form inputs & textarea */
+input:focus, textarea:focus {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+    background: rgba(255, 255, 255, 0.1);
+    transform: scale(1.02);
+    transition: transform 0.2s ease, background 0.3s ease;
+}
 
 /* ==========================
-04 FOOTER
+ FOOTER SECTION
 =============================*/
 footer {
     text-align: center;
@@ -259,172 +418,37 @@ footer {
     background: rgba(0,0,0,0.7);
     color: var(--text-color);
 }
-/* footer ul {
-    display: flex;
-    justify-content: center;
-    gap: 1rem;
-    margin-block: var(--margin-medium);
-}
-footer ul li a { color: var(--accent); }
-footer ul li a:hover { text-decoration: underline; } */
-
 /* ==========================
-05 RESPONSIVE MEDIA QUERIES
+ ACCESSIBILITY SETTINGS START HERE O
 =============================*/
-/* Mobile */
-@media (max-width: 768px) {
-    nav ul { 
-        flex-direction: column;
-        gap: 1rem;
-        position: absolute;
-        top: 60px;
-        left: 0;
-        right: 0;
-        background: rgba(15,15,15,0.9);
-        padding-block: var(--padding-medium);
-        transform: translateX(100%);
-        transition: transform var(--transition);
-    }
-    nav ul.active { 
-        transform: translateX(0); 
-    }
-    #togglebtn { 
-        display: flex; 
-    }
-    main, section { 
-        padding-inline: var(--padding-small); }
-}
-
-/* Tablet */
-@media (min-width: 769px) and (max-width: 1024px) {
-    section { grid-template-columns: repeat(2, 1fr); }
-}
-
-/* Desktop */
-@media (min-width: 1025px) {
-    main, section { max-width: 1200px; }
-    form {
-        min-width: 500px;
-    }
-}
-/* @media (min-width: 768px) {
-    .projectcard {
-        grid-template-columns: 1fr 1fr;
-        align-items: start;
-        width: 100%;
-    }
-
-    .projectcard figure {
-        margin: 0;
-    }
-
-    .projectcard img {
-        width: 100%;
-        height: auto;
-        display: block;
-        border-radius: var(--border-radius);
-    }
-} */
-/* ==========================
-06 ACCESSIBILITY IMPROVEMENTS
-=============================*/
-
-/* =====================
-Focus styles for keyboard users
-======================*/
+ /* Focus styles for keyboard users */
 :focus {
     outline: 2px dashed var(--accent);
     outline-offset: 4px;
 }
 
-/* Buttons and links */
-a:focus, .btn:focus {
-    outline: 2px solid var(--accent);
-    outline-offset: 2px;
-}
-
-/* Form inputs & textarea */
-input:focus, textarea:focus {
-    outline: 2px solid var(--accent);
-    outline-offset: 2px;
-    background: rgba(255, 255, 255, 0.1);
-}
-i {
-    margin-inline: var(--margin-small);
-}
 /* =====================
-Keyboard guidance hints
-======================*/
-
-/* Skip to main content link (optional but recommended) */
-.skip-link {
-    position: absolute;
-    top: -40px;
-    left: 0;
-    background: var(--accent);
-    color: #000;
-    padding: 8px 16px;
-    z-index: 100;
-    transition: top 0.3s ease;
-}
-.skip-link:focus {
-    top: 0;
-    background: initial;
-}
-/* screen reader  */
-.sr-only {
-      position: absolute !important;
-      height: 1px;
-      width: 1px;
-      overflow: hidden;
-      clip: rect(1px, 1px, 1px, 1px);
-      white-space: nowrap;
-      border: 0;
-      padding: 0;
-      margin: -1px;
-    }
-/* =====================
-Improve contrast for small text
-======================*/
-small, p, label, li {
-    color: var(--text-color);
-}
-
-/* =====================
-Accessible buttons
-======================*/
-.btn[aria-disabled="true"] {
-    opacity: 0.5;
-    cursor: not-allowed;
-}
-
-/* =====================
-Focus-visible polyfill for browsers that support it
-======================*/
-:focus:not(:focus-visible) {
-    outline: none;
-}
-/* ==========================
-07 INTERACTIVE & FOCUS ANIMATIONS
-=============================*/
-
-/* =====================
-Smooth button hover & focus
+ Smooth button hover & focus
 ======================*/
 .btn {
+    display: inline-block;
+    padding: var(--padding-small);
+    background: var(--accent);
+    color: #000;
+    border-radius: var(--border-radius);
+    font-weight: bold;
     position: relative;
     margin-block:  var(--margin-medium);
     transition: background 0.3s ease, color 0.3s ease, transform 0.2s ease;
 }
-
 .btn:hover, 
 .btn:focus {
+    opacity: 0.85;
     background: var(--accent);
     color: #000; 
     transform: translateY(-2px);
     box-shadow: 0 4px 10px rgba(255,255,255,0.2);
 }
-
 /* Secondary buttons */
 .btn-secondary {
     border: 2px solid var(--accent);
@@ -455,75 +479,111 @@ a.removebd:focus {
     transform: translateY(-2px);
     opacity: 0.8;
 }
-
-/* =====================
-Links inside text
-======================*/
+a:focus, .btn:focus {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+}
+/* Links inside text=*/
 a:hover, a:focus {
     color: var(--accent);
     text-decoration: underline;
     transition: color 0.2s ease, text-decoration 0.2s ease;
 }
-
+i {
+    margin-inline: var(--margin-small);
+}
 /* =====================
-Project cards hover/focus
+ Keyboard guidance hints style
 ======================*/
 
-.projectcard:hover, 
-.projectcard:focus-within {
-    transform: translateY(-5px);
-    box-shadow: 0 6px 15px rgba(255, 255, 255, 0.1);
-    outline: none;
+/* Skip to main content link*/
+.skip-link {
+    position: absolute;
+    top: -40px;
+    left: 0;
+    background: var(--accent);
+    color: #000;
+    padding: 8px 16px;
+    z-index: 100;
+    transition: top 0.3s ease;
 }
-
+.skip-link:focus {
+    top: 0;
+    background: initial;
+}
+/* screen reader style */
+.sr-only {
+      position: absolute !important;
+      height: 1px;
+      width: 1px;
+      overflow: hidden;
+      clip: rect(1px, 1px, 1px, 1px);
+      white-space: nowrap;
+      border: 0;
+      padding: 0;
+      margin: -1px;
+    }
 /* =====================
-Form inputs & buttons animation
+ Improve contrast for small text
 ======================*/
-input:focus, textarea:focus {
-    transform: scale(1.02);
-    transition: transform 0.2s ease, background 0.3s ease;
+small, p, label, li {
+    color: var(--text-color);
 }
 
-/* =====================
-Subtle hover for skill list
-======================*/
-.skills {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(75px, 1fr));
-    grid-auto-rows: 50px;
-    align-items: center;
-    justify-items: center;
-    max-width: 300px;
-    gap:  1.5rem 1rem;
-    margin-inline: auto;
-    margin-block: var(--margin-large);
-}
-.skills li {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: color 0.2s ease, transform 0.2s ease;
-    border-radius: var(--border-radius);
-    border: 1px solid var(--accent);
-    width: fit-content;
-    padding-inline: var(--padding-medium);
-    padding-block: var(--padding-small);
-    position: relative;
-     
-}
-
-.skills li:hover, 
-.skills li:focus {
-    color: var(--accent);
-    transform: translateX(3px);
+/* ==========================
+ RESPONSIVE MEDIA QUERIES
+=============================*/
+/* Mobile */
+@media (max-width: 768px) {
+    nav ul { 
+        flex-direction: column;
+        gap: 1rem;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        right: 0;
+        background: rgba(15,15,15,0.9);
+        padding-block: var(--padding-medium);
+        transform: translateX(100%);
+        transition: transform var(--transition);
+    }
+    nav ul.active { 
+        transform: translateX(0); 
+    }
+    #togglebtn { 
+        display: flex; 
+    }
+    main, section { 
+     padding-inline: var(--padding-small); }
 }
 
-/* =====================
-Navigation links hover/focus
-======================*/
-nav ul li a:hover, 
-nav ul li a:focus {
-    color: var(--accent);
-    text-decoration: underline;
-    transition: color 0.2s ease, text-decoration 0.2s ease;
+ @media (min-width: 768px) {
+    .projectcard {
+        grid-template-columns: 1fr 1fr;
+        align-items: start;
+        width: 100%;
+    }
+
+    .projectcard figure {
+        margin: 0;
+    }
+
+    .projectcard img {
+        width: 100%;
+        height: auto;
+        display: block;
+        border-radius: var(--border-radius);
+    }
+} 
+/* Tablet */
+@media (min-width: 769px) and (max-width: 1024px) {
+    section { grid-template-columns: repeat(2, 1fr); }
+}
+
+/* Desktop */
+@media (min-width: 1025px) {
+    main, section { max-width: 1200px; }
+    form {
+        min-width: 500px;
+    }
 }
