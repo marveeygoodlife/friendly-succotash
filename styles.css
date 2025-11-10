@@ -95,7 +95,7 @@ body::before {
     animation: BGanimation 10s ease infinite;
     background-size: 400% 400%;
 }
-/* @keyframes BGanimation {
+ @keyframes BGanimation {
     0% {
         background-position: 0% 50%;
     }
@@ -105,7 +105,7 @@ body::before {
     100% {
         background-position: 0% 50%;
     }
-} */
+} 
 /* LINKS */
 a {
     color: var(--accent);
