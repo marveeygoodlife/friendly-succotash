@@ -95,7 +95,7 @@ body::before {
     animation: BGanimation 10s ease infinite;
     background-size: 400% 400%;
 }
- @keyframes BGanimation {
+/*  @keyframes BGanimation {
     0% {
         background-position: 0% 50%;
     }
@@ -105,7 +105,7 @@ body::before {
     100% {
         background-position: 0% 50%;
     }
-} 
+}  */
 /* LINKS */
 a {
     color: var(--accent);
@@ -171,6 +171,7 @@ header #logo {
     margin-left: 1rem;
     font-family: 'Merriweather', serif;
     text-transform: uppercase;
+    font-size: 1.3rem;
 }
 nav {
      display: flex;
@@ -414,14 +415,16 @@ p.aboutp {
     transform: translateX(3px);
 }
 /* experience */
-/* fix layout */
 #experience .wrapper {
-    display: var(--layout);
-    grid-template-columns: var(--layout-template);
-    gap: 10px;
+      max-width: 450px;
+     box-shadow: 0 4px 10px rgba(255,255,255,0.2);
+     padding-inline:var(--padding-small);
+     min-height: 310px;
+     text-align: center;
 }
 /* ==========================
- CONTACT ME SECTION
+
+CONTACT ME SECTION
 =============================*/
 .contact_content p {
     margin-bottom: 1.5rem;
@@ -483,6 +486,10 @@ footer {
     position: relative;
     margin-block:  var(--margin-medium);
     transition: background 0.3s ease, color 0.3s ease, transform 0.2s ease;
+}
+#navBtn {
+        margin-block:  unset;
+        padding: 1px 3px;
 }
 .btn:hover, 
 .btn:focus {
