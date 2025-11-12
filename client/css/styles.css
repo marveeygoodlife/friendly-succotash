@@ -37,34 +37,36 @@
 }
 
 /* FONTS */
-   @font-face {
-    font-family: "Montserrat";
-    src: url(assets/fonts/Montserrat-Light.ttf), format("truetype");
-    font-style: normal;
-    font-display: swap;
-    font-weight: normal;
-   }
-   @font-face {
-    font-family: "Merriweather";
-    src: url(assets/fonts/Merriweather_24pt-ExtraBold.ttf), format("truetype");
-    font-style: bold;
-    font-display: swap;
-    font-weight: normal;
-   }
-   @font-face {
-    font-family: "Poppins";
-    src: url(assets/fonts/Poppins-Medium.ttf), format("truetype");
-    font-style: normal;
-    font-display: swap;
-    font-weight: normal;
-   }
-   @font-face {
-    font-family: "Roboto";
-    src: url(assets/fonts/Roboto_Condensed-Medium.ttf), format("truetype");
-    font-style: normal;
-    font-display: swap;
-    font-weight: normal;
-   }
+    @font-face {
+     font-family: "Montserrat";
+     /* styles.css lives in client/css/, fonts are in client/assets/fonts/ -> use ../assets/... */
+     src: url('../assets/fonts/Montserrat-Light.ttf') format("truetype");
+     font-style: normal;
+     font-display: swap;
+     font-weight: 300;
+    }
+    @font-face {
+     font-family: "Merriweather";
+     src: url('../assets/fonts/Merriweather_24pt-ExtraBold.ttf') format("truetype");
+     /* this is an ExtraBold file: use normal style and a bold weight */
+     font-style: normal;
+     font-display: swap;
+     font-weight: 800;
+    }
+    @font-face {
+     font-family: "Poppins";
+     src: url('../assets/fonts/Poppins-Medium.ttf') format("truetype");
+     font-style: normal;
+     font-display: swap;
+     font-weight: 500;
+    }
+    @font-face {
+     font-family: "Roboto";
+     src: url('../assets/fonts/Roboto_Condensed-Medium.ttf') format("truetype");
+     font-style: normal;
+     font-display: swap;
+     font-weight: 500;
+    }
 
 body {
     font-family: "Montserrat", Arial, sans-serif;
@@ -430,30 +432,7 @@ CONTACT ME SECTION
     margin-bottom: 1.5rem;
     position: relative;
 }
-form {
-    display: grid;
-    gap: var(--margin-medium);
-    min-width: 300px;
-    max-width: 600px;
-    margin-inline: auto;
-}
-form input, form textarea {
-    width: 100%;
-    padding-block: var(--padding-small);
-    padding-inline: var(--padding-medium);
-    border-radius: 5px;
-    border: 1px solid var(--border-color);
-    background: rgba(255,255,255,0.05);
-    color: var(--text-color);
-}
-/* Form inputs & textarea */
-input:focus, textarea:focus {
-    outline: 2px solid var(--accent);
-    outline-offset: 2px;
-    background: rgba(255, 255, 255, 0.1);
-    transform: scale(1.02);
-    transition: transform 0.2s ease, background 0.3s ease;
-}
+
 
 /* ==========================
  FOOTER SECTION
