@@ -12,6 +12,8 @@
   <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon_io/favicon-32x32.png" />
   <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon_io/favicon-16x16.png" />
   <link rel="manifest" href="assets/favicon_io/site.webmanifest" />
+    <!-- Load fonts from Google Fonts CDN (prefer WOFF2 delivery) -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&family=Poppins:wght@500&family=Merriweather:wght@800&family=Roboto+Condensed:wght@500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="./css/layout.css">
   <link rel="stylesheet" href="./css/styles.css">
   <title>My portfolio</title>
@@ -238,6 +240,7 @@
         </section>
         <hr>
         <section id="contact">
+        
             <div class="contact_content">
             <h2>Let’s connect</h2>
             <p class="contactp firstp">Say hello at <a href="mailto:marveey8027@gmail.com" class="underline">
@@ -270,18 +273,46 @@
            </div>
             </div>
 
-            <div class="form">
-                <form action="#" method="post">
+            <div class="form">    
+                <!-- success message -->
+            <div class="success-message" id="successMessage">
+                ☑️ Thank you your message has been sent successfully! 🎉</div>
+            <!-- loading spinner -->
+            <div class="loading" id="loading">
+                <div class="spinner">Sending your message...🚀</div>
+            </div>
+
+                <form id="contactForm">
+                    <div class="form-group">
                     <label for="name">Name:</label>
                     <input type="text" id="name" name="name" required placeholder="Enter full name" autocomplete="name">
+                    <span class="error" id="nameError"></span>
+                    </div>
 
+                    <div class="form-group"> 
                     <label for="email">Email:</label>
                     <input type="email" id="email" name="email" required placeholder="example@gmail.com" autocomplete="email" 
+                    <span class="error" id="emailError"></span>
+                    </div>
+
+                    <div class="form-group">
                     <label for="subject">Subject:</label>
-                    <input type="text" id="subject" name="subject" required placeholder="Enter subject">
+                    <select id="subject" class="subject">
+                        <option value="">Select a subject</option>
+                        <option value="general">General Inquiry</option>
+                        <option value="service">Book Service</option>
+                        <option value="report">Report a bug</option>
+                        <option value="collab">Collaborate</option>
+                        <option value="advice">Seek advice</option>
+                    </select>
+                    <span class="error" id="subjectError"></span>
+                    </div>
+                    <div class="form-grou">
                     <label for="message">Message:</label>
                     <textarea id="message" name="message" rows="2" required placeholder="Enter your message"></textarea>
-                    <button type="submit" class="btn">Send Message</button>
+                    <span class="error" id="messageError"></span>
+                    </div>
+                    <button type="submit" class="btn" id="formBtn">Send Message</button>
                 </form>
             </div>
         </section>
@@ -297,5 +328,7 @@
 <script src="https://kit.fontawesome.com/184a11b74d.js" crossorigin="anonymous" defer></script>
     <script src="./js/script.js"></script>
     <script src="./js/experience.js"></script>
+    <script src="./js/api-client.js"></script>
+    <script src="./js/form-validator.js"></script>
 </body>
 </html>

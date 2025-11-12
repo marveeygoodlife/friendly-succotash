@@ -30,9 +30,12 @@ app.use(express.urlencoded({ extended: true }));
 app.use('/api', formRoutes);
 
 //serve client for any other route
-// Use '/*' as the catch-all path so path-to-regexp parses it correctly
-// Use a RegExp route to avoid path-to-regexp parsing issues with certain versions
-app.get(/.*/, (req, res) => {
+// Use a middleware fallback to serve the client for any non-API route.
+// This avoids passing a wildcard string to path-to-regexp and is the
+// simplest, most compatible fallback across Express/router versions.
+app.use((req, res, next) => {
+    // If the request is for an API path, pass through to next handlers
+    if (req.path.startsWith('/api')) return next();
     res.sendFile(path.join(__dirname, '../client/index.html'));
 });
 

@@ -145,3 +145,96 @@ text-align: center;
         margin-left: auto;
     }
 }
+
+/* ================================
+Form style, success message
+===================================*/
+
+form {
+    display: grid;
+    gap: var(--margin-medium);
+    min-width: 300px;
+    max-width: 600px;
+    margin-inline: auto;
+}
+form input, form textarea, form select {
+    width: 100%;
+    padding-block: var(--padding-small);
+    padding-inline: var(--padding-medium);
+    border-radius: 5px;
+    border: 1px solid var(--border-color);
+    background: rgba(255,255,255,0.05);
+    color: var(--text-color);
+}
+label {
+    display: block;
+    font-weight: 500;
+    margin-bottom: 8px;
+}
+/* Form inputs & textarea */
+input:focus, textarea:focus, select:focus {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+    background: rgba(255, 255, 255, 0.1);
+    transform: scale(1.02);
+    transition: transform 0.2s ease, background 0.3s ease;
+}
+
+#contactForm #formBtn {
+border: none;
+background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+color: white;
+font-weight: 600;
+cursor: pointer;
+}
+#formBtn:disabled {
+    background: #ccc;
+    cursor: not-allowed;
+}
+.error {
+    color: #e74c3c;
+    font-size: 14px;
+    margin-top: 5px;
+    display: block;
+    min-height: 20px;
+}
+.error-border {
+    border-color: #e74c3c !important;
+}
+
+.valid {
+    border-color: #27ae60 !important;
+}
+.success-message, .loading {
+    padding: 15px;
+    border-radius: 8px;
+    text-align: center;
+    margin-bottom: 20px;
+    display: none;
+ }
+.success-message {
+background: #d4edda;
+color: #155724
+}
+ .loading {
+background: #d1ecf1;
+color: #0c5460;
+}
+.spinner {
+    border-radius: 50%;
+    border: 3px solid #f3f3f3;
+    border-top: 3px solid #667eea;
+    width: 30px;
+    height: 30px;
+    animation:  spin 1s linear infinite;
+    margin: 0 auto 10px;
+}
+
+@keyframes spin {
+0% {
+    transform: rotate(0);
+}
+100% {
+    transform: rotate(360deg);
+}
+}
