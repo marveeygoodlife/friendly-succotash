@@ -3,7 +3,7 @@
 
 class ApiClient {
     constructor() {
-        this.baseURL = process.env.RENDER_URL || window.location.origin;// use current domain
+        this.baseURL = window.location.origin;// use current domain
         console.log("API BASE URL:", this.baseURL)
     };
 
