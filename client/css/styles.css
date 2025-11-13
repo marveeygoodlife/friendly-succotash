@@ -83,20 +83,9 @@ body::before {
     z-index: -1;
     -webkit-backdrop-filter: blur(8px);
     backdrop-filter: blur(8px);
-    animation: BGanimation 10s ease infinite;
-    background-size: 400% 400%;
+     background-size: 400% 400%;
 }
- @keyframes BGanimation {
-    0% {
-        background-position: 0% 50%;
-    }
-    50% {
-        background-position: 100% 50%;
-    }
-    100% {
-        background-position: 0% 50%;
-    }
-}  
+ 
 /* LINKS */
 a {
     color: var(--accent);
