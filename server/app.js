@@ -1,4 +1,4 @@
-'use strict'
+'use strict';
 const express = require("express");
 const helmet = require("helmet");
 const cors = require('cors');
@@ -13,11 +13,33 @@ const errorHandler = require('./middleware/errorHandler');
 const app = express();
 
 //security middlewares
-app.use(helmet());
+app.use(
+    helmet({
+        contentSecurityPolicy: {
+            directives: {
+                defaultSrc: ["'self'"],
+                // only allow self for scripts (we serve all site JS locally)
+                scriptSrc: ["'self'"],
+                scriptSrcElem: ["'self'"],
+                styleSrc: ["'self'", 'https://fonts.googleapis.com', "'unsafe-inline'", 'https://cdnjs.cloudflare.com'],  // Allow Font Awesome CDN
+                 fontSrc: ["'self'", 'https://fonts.gstatic.com', 'https://cdnjs.cloudflare.com'],  // Allow Font Awesome fonts
+                imgSrc: ["'self'", 'data:', 'https://avatar.iran.liara.run'],
+                // allow fetch/XHR connections to known CDNs we use (Google Fonts, Font Awesome CDN)
+                connectSrc: ["'self'", 'https://fonts.googleapis.com', 'https://cdnjs.cloudflare.com'],  // Allow Font Awesome CDN
+                objectSrc: ["'none'"],
+                upgradeInsecureRequests: [],
+            },
+        },
+    })
+);
+
+
 app.use(cors());
 
 //serve static files
 app.use(express.static(path.join(__dirname, '../client')));
+
+//serve fonts files
 
 //body parsing middleware 
 app.use(express.json({

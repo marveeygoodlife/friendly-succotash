@@ -8,6 +8,7 @@ const subtitle = document.querySelector("#subtitle");
 const liOne = document.querySelector("#list-one");
 const liTwo = document.querySelector("#list-two");
 const liThree = document.querySelector("#list-three");
+const hasExperienceElements = title && subtitle && liOne && liTwo && liThree;
 
 // array objects of experience show card
 const cards = [
@@ -59,6 +60,7 @@ contributing to the development  of innovative web solutions.`
 let currentitem = 0;
 // default card to show when DOM content loads
 document.addEventListener("DOMContentLoaded", () => {
+  if (!hasExperienceElements) return;
   const item = cards[currentitem];
   title.textContent = item.title;
   subtitle.innerHTML = item.subtitle;
@@ -68,13 +70,14 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 function showCard(card) {
-    const item = cards[card];
-    if (!item) return;
-     title.textContent = item.title;
-     subtitle.innerHTML = item.subtitle;
-    liOne.innerHTML = item.list1;
-    liTwo.textContent = item.list2;
-    liThree.textContent = item.list3;
+  if (!hasExperienceElements) return;
+  const item = cards[card];
+  if (!item) return;
+  title.textContent = item.title;
+  subtitle.innerHTML = item.subtitle;
+  liOne.innerHTML = item.list1;
+  liTwo.textContent = item.list2;
+  liThree.textContent = item.list3;
   // announce the currently visible card for screen readers
 /*   try {
     const carouselRegion = document.querySelector('[role="region"][aria-label="card carousel"]');

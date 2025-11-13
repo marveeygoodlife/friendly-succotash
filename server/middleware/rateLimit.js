@@ -8,7 +8,7 @@ exports.formSubmission = rateLimit({
     max: 5, // 5 request
     message: {
         success: false,
-        message: 'Too many formm submission. Please try again later.'
+        message: 'Too many form submissions. Please try again later.'
     },
     standardHeaders: true,
     legacyHeaders: false,
