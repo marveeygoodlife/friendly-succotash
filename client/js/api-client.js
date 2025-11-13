@@ -12,7 +12,7 @@ class ApiClient {
             //send form data to server
             const response = await fetch(`${this.baseURL}/api/submit-form`, {
                 method: 'POST',
-                headers: { 'Content-type': 'application/json', },
+                headers: { 'Content-Type': 'application/json', },
                 body: JSON.stringify(formData)
             });
             // handle network error issues

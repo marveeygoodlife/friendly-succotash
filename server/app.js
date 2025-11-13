@@ -11,6 +11,7 @@ const formRoutes = require("./routes/formRoutes");
 const errorHandler = require('./middleware/errorHandler');
 
 const app = express();
+app.set('trust proxy', 1);
 
 //security middlewares
 app.use(
@@ -18,12 +19,11 @@ app.use(
         contentSecurityPolicy: {
             directives: {
                 defaultSrc: ["'self'"],
-                // only allow self for scripts (we serve all site JS locally)
+                // only allow self for scripts 
                 scriptSrc: ["'self'"],
                 scriptSrcElem: ["'self'"],
                 styleSrc: ["'self'", 'https://fonts.googleapis.com', "'unsafe-inline'", 'https://cdnjs.cloudflare.com'],  // Allow Font Awesome CDN
                  fontSrc: ["'self'", 'https://fonts.gstatic.com', 'https://cdnjs.cloudflare.com'],  // Allow Font Awesome fonts
-                imgSrc: ["'self'", 'data:', 'https://avatar.iran.liara.run'],
                 // allow fetch/XHR connections to known CDNs we use (Google Fonts, Font Awesome CDN)
                 connectSrc: ["'self'", 'https://fonts.googleapis.com', 'https://cdnjs.cloudflare.com'],  // Allow Font Awesome CDN
                 objectSrc: ["'none'"],
