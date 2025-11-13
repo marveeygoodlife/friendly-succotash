@@ -7,13 +7,41 @@
   <meta name="keywords" content="Portfolio, Web Development, Projects, Skills, Experience, Design" />
   <meta name="author" content="Marvellous Ediagbonya" />
   <meta name="robots" content="index, follow" />
+  
   <!-- Favicons -->
-  <link rel="apple-touch-icon" sizes="180x180" href="assets/favicon_io/apple-touch-icon.png" />
-  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon_io/favicon-32x32.png" />
-  <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon_io/favicon-16x16.png" />
-  <link rel="manifest" href="assets/favicon_io/site.webmanifest" />
+  <link rel="apple-touch-icon" sizes="180x180" href="./assets/favicon_io/apple-touch-icon.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/favicon_io/favicon-32x32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="./assets/favicon_io/favicon-16x16.png" />
+  <link rel="manifest" href="./assets/favicon_io/site.webmanifest" />
+
+    <!--   Open Graph Meta Tags for social media sharing -->
+    <meta property="og:title" content="Marvellous Ediagbonya - Portfolio" />
+    <meta property="og:description" content="Welcome to my portfolio website! Explore my projects, skills, and experiences in web development and design." />
+    <meta property="og:image" content="assets/images/portfolio-preview.png" />
+    <meta property="og:url" content="https://marveeygoodlife.github.io/" />
+    <meta property="og:type" content="website" />
+
+    <!-- twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Marvellous Ediagbonya - Portfolio"/>
+    <meta name="twitter:description" content="Welcome to my portfolio website! Explore my projects, skills, and experiences in web development and design." />
+    <meta name="twitter:image" content="assets/images/portfolio-preview.png"/>
+    <meta name="twitter:creator" content="@marveeygoodlife" />
+    <meta name="twitter:site" content="@marveeygoodlife" />
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+
     <!-- Load fonts from Google Fonts CDN (prefer WOFF2 delivery) -->
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&family=Poppins:wght@500&family=Merriweather:wght@800&family=Roboto+Condensed:wght@500&display=swap" rel="stylesheet">
+
+    <!-- Google Material Symbols (Outlined) -->
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet">
+
+        <!-- Local Font Awesome:  -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/brands.min.css" rel="stylesheet">
+
+  <!-- style rules -->
   <link rel="stylesheet" href="./css/layout.css">
   <link rel="stylesheet" href="./css/styles.css">
   <title>My portfolio</title>
@@ -57,7 +85,7 @@
                 </a>
             </div>
             <figure>
-                <img src="https://avatar.iran.liara.run/public" alt="profile picture">
+                <img src="./assets/images/marveey-removebg-preview.webp" alt="My picture">
             </figure>
             </div>
         </section>
@@ -73,8 +101,7 @@
                 <div class="projectcard">
                     <figure>
                         <img src="#" alt="project image">
-                        <!-- https://placehold.co/600x400/orange/white -->
-                    </figure>
+                     </figure>
                     <div class="projectcontent">
                         <h3>Project Title</h3>
                         <p>A functional UI component showcasing simple interactions, smooth animations, and an organized code structure that’s easy to extend.</p>
@@ -90,7 +117,7 @@
                         <i class="fa-brands fa-github"  aria-hidden="true"></i>
                     </a>
                     <a href="#" class="btn btn-secondary">Live Demo 
-                        <i class="fa-solid fa-arrow-up-right-from-square"  aria-hidden="true"></i>
+                        <span class="material-symbols-outlined" aria-hidden="true">open_in_new</span>
                     </a>
                   
                     </div>
@@ -114,7 +141,7 @@
                         <i class="fa-brands fa-github"  aria-hidden="true"></i>
                     </a>
                     <a href="#" class="btn btn-secondary">Live Demo 
-                        <i class="fa-solid fa-arrow-up-right-from-square"  aria-hidden="true"></i>
+                        <span class="material-symbols-outlined" aria-hidden="true">open_in_new</span>
                     </a>
                     </div>
                 </div>
@@ -136,7 +163,7 @@
                         <i class="fa-brands fa-github"  aria-hidden="true"></i>
                     </a>
                     <a href="#" class="btn btn-secondary">Live Demo 
-                        <i class="fa-solid fa-arrow-up-right-from-square"  aria-hidden="true"></i>
+                        <span class="material-symbols-outlined" aria-hidden="true">open_in_new</span>
                     </a>
                     </div>
                 </div>
@@ -151,15 +178,13 @@
                 <p class="aboutp">I specialize in building responsive and user-friendly web applications. My passion lies in creating accessibility rich, and  seamless user experiences through clean and efficient code. When I'm not coding, I enjoy reading books, spending time in nature, photography, self-development, and exploring new technologies to enhance my skills in web development.<br>currently, I am focused on expanding my expertise in React and modern JavaScript frameworks to build dynamic and interactive web applications.
             </p>
              <!-- Download a PDF file -->
-<a href="/public/assets/Marvellous_Resumee.pdf" download class="btn">
-    <i class="fa-solid fa-download"  aria-hidden="true">
-    </i> Download CV
+<a href="client/assets/Marvellous_Resumee.pdf" download class="btn">
+    <span class="material-symbols-outlined" aria-hidden="true">download</span> Download CV
     <span class="sr-only">Download my CV</span> 
 </a>
             </div>
             <figure>
-            <img src="https://placehold.co/900x400/orange/white" alt="my second image" #aboutimg>
-            </figure>
+             </figure>
         </div>
         </section>
         
@@ -232,8 +257,8 @@
                 </ul>
             <!-- prev and next buttons -->
             <div class="buttoncontainer">
-                <button type="button" id="prevbtn" title="previous review" aria-label="previous button"><i class="fas fa-chevron-left"> </i></button>
-                <button type="button" id="nextbtn" aria-label="next button"><i class="fas fa-chevron-right" title="next review"></i></button>
+                <button type="button" id="prevbtn" title="previous review" aria-label="previous button"><span class="material-symbols-outlined" aria-hidden="true">chevron_left</span></button>
+                <button type="button" id="nextbtn" aria-label="next button"><span class="material-symbols-outlined" aria-hidden="true" title="next review">chevron_right</span></button>
             </div>
         </div>
         </div>
@@ -279,7 +304,8 @@
                 ☑️ Thank you your message has been sent successfully! 🎉</div>
             <!-- loading spinner -->
             <div class="loading" id="loading">
-                <div class="spinner">Sending your message...🚀</div>
+                Sending your message...🚀
+                <div class="spinner"></div>
             </div>
 
                 <form id="contactForm">
@@ -291,13 +317,13 @@
 
                     <div class="form-group"> 
                     <label for="email">Email:</label>
-                    <input type="email" id="email" name="email" required placeholder="example@gmail.com" autocomplete="email" 
+                    <input type="email" id="email" name="email" required placeholder="example@gmail.com" autocomplete="email">
                     <span class="error" id="emailError"></span>
                     </div>
 
                     <div class="form-group">
                     <label for="subject">Subject:</label>
-                    <select id="subject" class="subject">
+                    <select id="subject" name="subject" class="subject">
                         <option value="">Select a subject</option>
                         <option value="general">General Inquiry</option>
                         <option value="service">Book Service</option>
@@ -307,7 +333,7 @@
                     </select>
                     <span class="error" id="subjectError"></span>
                     </div>
-                    <div class="form-grou">
+                    <div class="form-group">
                     <label for="message">Message:</label>
                     <textarea id="message" name="message" rows="2" required placeholder="Enter your message"></textarea>
                     <span class="error" id="messageError"></span>
@@ -323,9 +349,8 @@
     </footer>
     <button type="button" class="scroll-to-top" id="scrollToTop">
         <span class="sr-only">Scroll to top buttton</span>
-        &UpArrow;
+        <span class="material-symbols-outlined" aria-hidden="true">arrow_upward</span>
     </button>
-<script src="https://kit.fontawesome.com/184a11b74d.js" crossorigin="anonymous" defer></script>
     <script src="./js/script.js"></script>
     <script src="./js/experience.js"></script>
     <script src="./js/api-client.js"></script>

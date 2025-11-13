@@ -3,58 +3,69 @@
 document.addEventListener("DOMContentLoaded", function() {
     const ul = document.querySelector('nav ul');
     const ulbtn = document.querySelector('nav button');
-    const ulLinks = document.querySelectorAll("ul a");
-    const nav = document.querySelector('nav')
+    const ulLinks = Array.from(document.querySelectorAll("ul a"));
+    const nav = document.querySelector('nav');
+    // Defensive guards: if expected nav elements are missing, skip nav-specific behavior
+    const hasNavElements = ul && ulbtn && nav;
     /* close link function */
     function closeUl() {
+        if (!hasNavElements) return;
         ul.classList.remove("active");
-        ulbtn.setAttribute('aria-expanded', 'false')
+        ulbtn.setAttribute('aria-expanded', 'false');
     }
     /* show mobile nav menu */
-    ulbtn.addEventListener("click", () => {
-        /* set aria attribute for accessibility */
-        let expanded = ulbtn.getAttribute('aria-expanded') === 'true';
-        ulbtn.setAttribute("aria-expanded", !expanded);
-        ul.classList.toggle('active');
-    });
+    if (hasNavElements) {
+        ulbtn.addEventListener("click", () => {
+            /* set aria attribute for accessibility */
+            let expanded = ulbtn.getAttribute('aria-expanded') === 'true';
+            ulbtn.setAttribute("aria-expanded", String(!expanded));
+            ul.classList.toggle('active');
+        });
+    }
     /* close nav on click of links */
-    ulLinks.forEach((link) => {
-        link.addEventListener("click", (e) => {
-            e.preventDefault();
-            closeUl();
-            const targetId = e.target.getAttribute('href');
-            setTimeout(() => {
-                document.querySelector(targetId).scrollIntoView({ behaviour: "smooth", });
-            }, 100);
-        })
-    })
+    if (ulLinks.length) {
+        ulLinks.forEach((link) => {
+            link.addEventListener("click", (e) => {
+                e.preventDefault();
+                closeUl();
+                const targetId = link.getAttribute('href');
+                setTimeout(() => {
+                    const target = document.querySelector(targetId);
+                    if (target) target.scrollIntoView({ behavior: "smooth" });
+                }, 100);
+            });
+        });
+    }
     /* close nav link on click of outside ul */
     document.addEventListener('click', (e) => {
+        if (!hasNavElements) return;
         const navopen = ul.classList.contains("active");
         const clickedUl = ul.contains(e.target);
         const clickedtoggle = ulbtn.contains(e.target);
         if (navopen && !clickedUl && !clickedtoggle) {
             closeUl();
-        };
+        }
     });
     //get scroll to top button
     const togglebtn = document.getElementById("scrollToTop");
 /* scroll on click of button */
-    togglebtn.addEventListener("click", () => {
-        window.scrollTo({
-            top: 0,
-            behaviour: "smooth",
+    if (togglebtn) {
+        togglebtn.addEventListener("click", () => {
+            window.scrollTo({
+                top: 0,
+                behavior: "smooth",
+            });
         });
-    });
+    }
 /* show scroll to top button */
     window.addEventListener('scroll', () => {
-        
-            const scrollHeight = window.scrollY;
-            if (scrollHeight > 1500) {
-                togglebtn.classList.add("show");
-            } else {
-                togglebtn.classList.remove("show");
-        };
+        const scrollHeight = window.scrollY;
+        if (!togglebtn) return;
+        if (scrollHeight > 1500) {
+            togglebtn.classList.add("show");
+        } else {
+            togglebtn.classList.remove("show");
+        }
     });
 
     /* reveal: adds a small translate/opacity animation when elements enter viewport
@@ -119,8 +130,8 @@ document.addEventListener("DOMContentLoaded", function() {
             // type into the textNode
             return typeText(textNode, fullText, 150).then(() => {
                 heroH1.classList.remove('typing');
-                // remove caret after typing completes
-                //if (caret && caret.parentNode) caret.parentNode.removeChild(caret);
+                //remove caret after typing completes
+                if (caret && caret.parentNode) caret.parentNode.removeChild(caret);
                 // announce final text for screen readers
                 if (announcer) announcer.textContent = fullText;
             });
