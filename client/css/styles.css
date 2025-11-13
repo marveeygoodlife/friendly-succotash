@@ -1,6 +1,4 @@
-/* ==========================
-01 GENERAL STYLE & RESET
-=============================*/
+/*GENERAL STYLE & RESET*/
 *, ::before, ::after {
     margin: 0;
     padding: 0;
@@ -35,9 +33,25 @@
     --padding-large: 16px 24px;
     --line-height: 1.5;
 }
+ 
+/* Material Symbols setup
+*/
+:root {
+    --material-fill: 0;     /* 0 = outline, 1 = filled (some families) */
+    --material-wght: 400;   /* weight axis */
+    --material-grad: 0;     /* grade */
+    --material-opsz: 20;    /* optical size */
+}
 
-/* FONTS (served from Google Fonts CDN) */
-/* Fonts are loaded via the Google Fonts link in index.html. */
+.material-symbols-outlined {
+    font-family: 'Material Symbols Outlined';
+    font-variation-settings: 'FILL' var(--material-fill), 'wght' var(--material-wght), 'GRAD' var(--material-grad), 'opsz' var(--material-opsz);
+    font-feature-settings: "liga" 1; /* enable ligatures (common for symbol fonts) */
+    display: inline-block;
+    line-height: 1;
+    vertical-align: middle;
+}
+
 
 body {
     font-family: "Montserrat", Arial, sans-serif;
@@ -121,311 +135,36 @@ h4 {
 /* IMAGES & FIGURES */
 img { display: block;
      max-width: 100%; 
-     height: auto;  background:   linear-gradient(45deg, #ff0080, #00ffcc);
+     height: auto;  
+    }
+    
+    img.projectimg {
+     background:   linear-gradient(45deg, #ff0080, #00ffcc);
+     object-fit: cover;
     }
 figure { 
     margin-block: var(--margin-medium); 
 }
-
-/* ==========================
- HEADER & NAVIGATION
-=============================*/
-
-header { 
-    width: 100%;
-position: relative;
-display: flex;
-justify-content: space-between;
-align-items: center;
-gap: 2rem;
-}
-header #logo {
-    width: fit-content;
-    margin-left: 1rem;
-    font-family: 'Merriweather', serif;
-    text-transform: uppercase;
-    font-size: 1.3rem;
-}
-nav {
-     display: flex;
-    justify-content: space-between;
-    align-items: flex-end;
-    padding-inline: var(--padding-medium);
-    padding-block: var(--padding-medium);
-  
-}
-
-nav ul {
-    display: flex;
-    gap: 1rem;
-    padding-inline: var(--padding-large);
-    list-style-type: none;
-}
-ul   li   {
-   list-style-type: none;
-}
-nav ul li a {
-     font-size: var(--font-size-medium);
-     font-weight: bold;}
-
-/* =====================
-Navigation links hover/focus
-======================*/
-nav ul li a:hover, 
-nav ul li a:focus {
-    color: var(--accent);
-    text-decoration: underline;
-    transition: color 0.2s ease, text-decoration 0.2s ease;
-}
-
-/* HAMBURGER */
-#togglebtn {
-    display: none;
-    flex-direction: column;
-    justify-content: space-around;
-    width: 30px;
-    height: 30px;
-    background: transparent;
-    border: none;
-    cursor: pointer;
-    padding: 0;
-    margin-left: auto;
-}
-#togglebtn .bar {
-    width: 100%;
-    height: 3px;
-    background: var(--text-color);
-    border-radius: 2px;
-}
-
-/* ==========================
- MAIN & SECTIONS
-=============================*/
-main {
-    display: var(--layout);
-    grid-template-columns: 1fr;
-    gap: 2rem;
-    padding-inline: var(--padding-medium);
-    margin-inline: auto;
-    max-width: 1200px;
-}
-
-section {
-    display: var(--layout);
-    grid-template-columns: var(--layout-template);
-    gap: 2rem;
-    padding-inline: var(--padding-large);
-    padding-block: var(--padding-small);
-    margin-block: 3rem;
-    width: 100%;
-    background: rgba(20, 20, 40, 0.6);
-    -webkit-backdrop-filter: blur(10px);
-    backdrop-filter: blur(10px);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 15px;
-}
-/* ==========================
- MY INTRO/HERO SECTION
-=============================*/
-
-#hero .wrapper {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 2rem;
-    align-items: center;
-    justify-items: center;
-}
-#hero img {
-    border-radius: var(--border-radius);
-}
-.hero-content p {
-    margin-block: var(--margin-large);
-}
- 
-/* ==========================
- MY FEATURED PROJECTS
-=============================*/
-section#work {
-    justify-items: unset;
-    display: unset;
- }
-
- section#work figure{
-    position: relative;
-    width: 100%;
-    height: 100%;
-  }
- section#work figure img{
-    height: 100%;
-    background: linear-gradient(45deg, #ff0080, #00ffcc); 
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: white;
-    font-weight: bold;
-    position: relative;
-    overflow: hidden;
-    inset: 0;
-    text-align: center;
-  }
- section#work figure img::after {
-    content: '';
-    position: absolute;
-    inset: 0;
-     background: linear-gradient(135deg, rgba(255,0,128,0.2), rgba(0,255,204,0.2));
-  }
-
- section#work #workp {
-margin:1rem 0;
- max-width: 500px;
-}
-
-/* project cards */
-.projectgrid {
-    display: grid;
-    grid-template-columns:1fr;
-     gap: 2rem;
-    align-content: center;
-justify-items: center;}
-
-.projectcard {
-     background: rgba(30, 30, 60, 0.7);
-     border-radius: var(--border-radius);
-    overflow: hidden;
-    box-shadow: var(--box-shadow);
-    display: var(--layout);
-    grid-template-columns: var(--layout-template);
-    transition:transform var(--transition), box-shadow var(--transition);
-}
-
-.projectcard:hover, 
-.projectcard:focus-within {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);;
-    outline: none;
-}
-.projectcontent {
-    overflow-x: hidden;
-     padding-block: var(--padding-medium);
-    padding-inline: var(--padding-medium);
-}
-.projectcontent h3, h4 { 
-    margin-block: var(--margin-xl); 
-text-transform: uppercase;
-}
-.projectcontent p {
-     margin-block: var(--margin-xl); }
-.projectcontent ul { 
-    margin-block: var(--margin-xl); }
-.projectcontent   h4 {
-    border-bottom: 1px solid var(--border-color);
-padding-bottom: 20px;
-}
-.projectcontent ul li { 
-    padding-bottom: 10px;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-    margin-block: var(--margin-medium);
-border-bottom: 1px solid var(--border-color);
-}
-.projectcontent a { 
-    display: inline-flex;
-     width: fit-content;
-}
-/* ==========================
- ABOUT ME SECTION
-=============================*/
-h3.abouth3 {
-    font-size: clamp(1.5rem, 3.5vw + 0.5rem, 2.3rem);
-     margin-block: var(--margin-large);
-    line-height: 1;
-    font-weight: 900;
-    margin-bottom: var(--margin-large);
-}
-p.aboutp {
-    margin-block: var(--margin-large)
-}
-#about img {
-    border-radius: 50%;
-    width: 200px;
-    height: 200px;
-    object-fit: cover;
-}
-
-/* =====================
- skill list style
-======================*/
-.skills {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(75px, 1fr));
-    grid-auto-rows: 50px;
-    align-items: center;
-    justify-items: center;
-    max-width: 300px;
-    gap:  1.5rem 1rem;
-    margin-inline: auto;
-    margin-block: var(--margin-large);
-}
-.skills li {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: color 0.2s ease, transform 0.2s ease;
-    border-radius: var(--border-radius);
-    border: 1px solid var(--accent);
-    width: fit-content;
-    padding-inline: var(--padding-medium);
-    padding-block: var(--padding-small);
-    position: relative;
-     
-}
-.skills li:hover, 
-.skills li:focus {
-    color: var(--accent);
-    transform: translateX(3px);
-}
-/* experience */
-#experience .wrapper {
-      max-width: 450px;
-     box-shadow: 0 4px 10px rgba(255,255,255,0.2);
-     padding-inline:var(--padding-small);
-     min-height: 310px;
-     text-align: center;
-}
-/* ==========================
-
-CONTACT ME SECTION
-=============================*/
+/* contact */
 .contact_content p {
     margin-bottom: 1.5rem;
     position: relative;
 }
 
-
-/* ==========================
- FOOTER SECTION
-=============================*/
+/* footer*/
 footer {
     text-align: center;
     padding-block: var(--padding-large);
     background: #0f0f1f;
     color: var(--text-color);
 }
-/* ==========================
- ACCESSIBILITY SETTINGS START HERE 
-=============================*/
- /* Focus styles for keyboard users */
+/* accessibility:  Focus styles for keyboard users */
 :focus {
     outline: 2px dashed var(--accent);
     outline-offset: 4px;
 }
 
-/* =====================
- Smooth button hover & focus
-======================*/
+/* smooth button hover & focus */
 .btn {
     display: inline-block;
     padding: var(--padding-small);
@@ -505,9 +244,6 @@ a:hover, a:focus {
 i {
     margin-inline: var(--margin-small);
 }
-/* =====================
- Keyboard guidance hints style
-======================*/
 
 /* Skip to main content link*/
 .skip-link {
@@ -536,9 +272,7 @@ i {
       padding: 0;
       margin: -1px;
     }
-/* =====================
- Improve contrast for small text
-======================*/
+/*Improve contrast for small text*/
 small, p, label, li {
     color: var(--text-color);
 }
