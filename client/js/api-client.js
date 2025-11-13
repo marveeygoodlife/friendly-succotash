@@ -3,8 +3,12 @@
 
 class ApiClient {
     constructor() {
-        this.baseURL = window.location.origin;// use current domain
-        console.log("API BASE URL:", this.baseURL)
+        // Allow an explicit API base URL to be injected (useful when
+        // frontend and backend are deployed to different origins).
+        // If not provided, use a relative path so requests go to the
+        // same origin that served the page (covers single-service deploys).
+        this.baseURL = (window.__API_BASE_URL__ && window.__API_BASE_URL__.replace(/\/$/, '')) || '';
+        console.log("API BASE URL:", this.baseURL || '(relative)')
     };
 
     async submitForm(formData) {
