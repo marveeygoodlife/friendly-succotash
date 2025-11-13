@@ -1,4 +1,6 @@
-/*GENERAL STYLE & RESET*/
+/* ==========================
+01 GENERAL STYLE & RESET
+=============================*/
 *, ::before, ::after {
     margin: 0;
     padding: 0;
@@ -33,7 +35,9 @@
     --padding-large: 16px 24px;
     --line-height: 1.5;
 }
- 
+
+/* FONTS (served from Google Fonts CDN) */
+
 /* Material Symbols setup
 */
 :root {
@@ -145,26 +149,40 @@ img { display: block;
 figure { 
     margin-block: var(--margin-medium); 
 }
-/* contact */
+
+/* experience */
+
+/* ==========================
+
+CONTACT ME SECTION
+=============================*/
 .contact_content p {
     margin-bottom: 1.5rem;
     position: relative;
 }
 
-/* footer*/
+
+/* ==========================
+ FOOTER SECTION
+=============================*/
 footer {
     text-align: center;
     padding-block: var(--padding-large);
     background: #0f0f1f;
     color: var(--text-color);
 }
-/* accessibility:  Focus styles for keyboard users */
+/* ==========================
+ ACCESSIBILITY SETTINGS START HERE 
+=============================*/
+ /* Focus styles for keyboard users */
 :focus {
     outline: 2px dashed var(--accent);
     outline-offset: 4px;
 }
 
-/* smooth button hover & focus */
+/* =====================
+ Smooth button hover & focus
+======================*/
 .btn {
     display: inline-block;
     padding: var(--padding-small);
@@ -244,6 +262,9 @@ a:hover, a:focus {
 i {
     margin-inline: var(--margin-small);
 }
+/* =====================
+ Keyboard guidance hints style
+======================*/
 
 /* Skip to main content link*/
 .skip-link {
@@ -272,7 +293,9 @@ i {
       padding: 0;
       margin: -1px;
     }
-/*Improve contrast for small text*/
+/* =====================
+ Improve contrast for small text
+======================*/
 small, p, label, li {
     color: var(--text-color);
 }
