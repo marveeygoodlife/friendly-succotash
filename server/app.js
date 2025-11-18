@@ -40,7 +40,6 @@ app.use(cors());
 app.use(express.static(path.join(__dirname, '../client')));
 
 //serve fonts files
-
 //body parsing middleware 
 app.use(express.json({
     limit: '10mb' //limit body to 10mb

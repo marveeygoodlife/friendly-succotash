@@ -38,7 +38,7 @@ text-align: center;
     transform: none;
 }
 
-.hero-content  {
+.hero-content  { padding-inline: var(--padding-medium);
     position: relative;
 }
 @keyframes blink {
@@ -200,6 +200,7 @@ section {
 
 /* WORK / PROJECTS */
 section#work {
+    padding-inline: 12px;
     justify-items: unset;
     display: unset;
  }
@@ -232,6 +233,7 @@ section#work {
  section#work #workp {
 margin:1rem 0;
  max-width: 500px;
+ padding-inline-start: 12px;
 }
 
 /* project cards */
@@ -250,6 +252,7 @@ justify-items: center;}
     display: var(--layout);
     grid-template-columns: var(--layout-template);
     transition:transform var(--transition), box-shadow var(--transition);
+    padding-inline: var(--padding-small);
 }
 
 .projectcard:hover, 
@@ -291,14 +294,15 @@ border-bottom: 1px solid var(--border-color);
 
 /* ABOUT */
 h3.abouth3 {
-    font-size: clamp(1.5rem, 3.5vw + 0.5rem, 2.3rem);
-     margin-block: var(--margin-large);
+    font-size: clamp(1.3rem, 3.5vw + 0.5rem, 2rem);
+     margin-block: var(--margin-medium);
+     margin-inline: 10px;
     line-height: 1;
-    font-weight: 900;
-    margin-bottom: var(--margin-large);
-}
+    font-weight: 700;
+ }
 p.aboutp {
     margin-block: var(--margin-large);
+    padding-inline: var(--padding-medium);
 }
 
 #about img {
@@ -307,7 +311,14 @@ p.aboutp {
     height: 200px;
     object-fit: cover;
 }
-
+#about #aboutbtn {
+    margin-inline: var(--margin-medium);
+}
+/* CAPABILITY SECTION */
+#capability .wrapper p {
+    padding-inline: var(--padding-medium);
+    margin-block-start: 12px;;
+}
 /* SKILLS */
 .skills {
     display: grid;
@@ -342,10 +353,12 @@ p.aboutp {
 /* EXPERIENCE */
 #experience .wrapper {
       max-width: 450px;
-     box-shadow: 0 4px 10px rgba(255,255,255,0.2);
+     box-shadow: 0 4px 5px rgba(255,255,255,0.2);
      padding-inline:var(--padding-small);
      min-height: 310px;
      text-align: center;
+     margin: 0 auto;
+     margin-inline: 12px;
 }
 
 
@@ -395,6 +408,9 @@ p.aboutp {
     ul {
         margin-left: auto;
     }
+    form {
+        margin-block-start: 1.5rem;
+    }
 }
 
 /*Form style, success message*/
@@ -416,6 +432,7 @@ form input, form textarea, form select {
     color: var(--text-color);
 }
 label {
+    margin-inline: var(--padding-medium);
     display: block;
     font-weight: 500;
     margin-bottom: 8px;

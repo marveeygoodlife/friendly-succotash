@@ -31,8 +31,8 @@
     --font-size-medium: 16px;
     --font-size-large: 24px;
     --padding-small: 8px 12px;
-    --padding-medium: 12px 16px;
-    --padding-large: 16px 24px;
+    --padding-medium: 12px ;
+    --padding-large: 15px 24px;
     --line-height: 1.5;
 }
 
@@ -60,12 +60,11 @@
 body {
     font-family: "Montserrat", Arial, sans-serif;
     background: var(--background-color);
-    background-size: 400% 400%;
-    animation: BGanimation 10s ease infinite;
     color: var(--text-color);
     scroll-behavior: smooth;
     line-height: var(--line-height);
     overflow-x: hidden;
+    height: 100%;
 }
 
 html {
@@ -107,17 +106,18 @@ h1 {
     text-transform: uppercase; 
     line-height: 1;
     margin-bottom: 1rem;
-    background: linear-gradient(90deg, #ff0080, #00ffcc);
+    background: linear-gradient(to left, #ff0080 10%, #00ffcc  50%);
     -webkit-background-clip: text;
     background-clip:text;
     color: transparent;
-    text-shadow: 0 0 30px rgba(255, 0, 128, 0.3);
+    text-shadow: 0 0 10px rgba(255, 0, 128, 0.2);
 }
 h2 { 
     font-size: clamp(1.5rem, 3.5vw + 0.5rem, 2.6rem); 
     text-align:left;
   text-transform: uppercase;
  color: #00ffcc;
+ margin-inline: var(--margin-medium);
 }
 h3 { 
     font-size: var(--font-size-medium);
@@ -146,8 +146,9 @@ figure {
 CONTACT ME SECTION
 =============================*/
 .contact_content p {
-    margin-bottom: 1.5rem;
+    margin-bottom: 1.1rem;
     position: relative;
+    padding-inline: var(--padding-medium);
 }
 
 

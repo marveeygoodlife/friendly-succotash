@@ -18,7 +18,7 @@ exports.submitForm = async (req, res, next) => {
         });
 
     } catch (error) {
-        logger.error("Form Submission Failed, check logger.", { error: error.message });
+        logger.error("Form Submission Failed.", { error: error.message });
         next(error)
     }
 };
